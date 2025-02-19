@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,9 +14,9 @@ class CategoryController extends Controller
         return \view('categories.index');
     }
 
-    public function form(): View
+    public function form(Category $category = null): View
     {
-        return \view('categories.form');
+        return \view('categories.form', compact('category'));
     }
 
     public function store(): RedirectResponse
